@@ -15,19 +15,15 @@ def run(model, x, layer_name):
 
     # 前処理
     X = np.expand_dims(x, axis=0)
-
     X = X.astype('float32')
     preprocessed_input = X / 255.0
 
     # 予測クラスの算出
-
     predictions = model.predict(preprocessed_input)
     class_idx = np.argmax(predictions[0])
     class_output = model.output[:, class_idx]
 
-
     #  勾配を取得
-
     conv_output = model.get_layer(layer_name).output   # layer_nameのレイヤーのアウトプット
     grads = K.gradients(class_output, conv_output)[0]  # gradients(loss, variables) で、variablesのlossに関しての勾配を返す
     gradient_function = K.function([model.input], [conv_output, grads])  # model.inputを入力すると、conv_outputとgradsを出力する関数

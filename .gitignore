@@ -1,1 +1,3 @@
 .python-version
+__pycache__
+module/__pycache__
