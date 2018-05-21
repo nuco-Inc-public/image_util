@@ -9,7 +9,7 @@ from keras.preprocessing.image import array_to_img, img_to_array, load_img
 
 def init():
     print("initializing...")
-    os.system("rm -r ./util/image_util/output/")
+    os.system("rm -r ./util/image_util/output/*")
 
 
 def create_thumbnail(type_, file_name):
