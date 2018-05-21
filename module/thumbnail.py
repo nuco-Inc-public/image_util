@@ -74,7 +74,7 @@ def create_thumbnail(type_, file_name):
             img_list2D.append(row_list)
             row_list = []
             continue
-    create_concat_tile(img_list2D).save("./util/image_util/output/thumbnail/" + type_ + "/" + file_name + ".jpg")
-    print('Craeted thumnail type: %s, file_name: %s' %(type_, file_name))
+    create_concat_tile(img_list2D).save("./util/image_util/output/thumbnail/" + type_ + "/" + type_+file_name + ".jpg")
+    print('Craeted thumnail type: %s, file_name: %s' %(type_, type_+file_name))
 
     
