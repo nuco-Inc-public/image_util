@@ -12,7 +12,7 @@ def add(image_path, result, file_name=None):
     draw_y = 30
     font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
     text = 'OK' if result else 'NG'
-    fill = (0, 0, 255) if result else (255, 0, 0)
+    fill = '#0000ff' if result else '#ff0000'
     image = Image.open(image_path).resize((224, 224))
     draw = ImageDraw.Draw(image)
     draw.text((draw_x, draw_y), text, font=font, fill=fill)
