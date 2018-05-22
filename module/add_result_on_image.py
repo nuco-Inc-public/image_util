@@ -3,6 +3,7 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
+# TODO 全く同じコードが存在する
 def add(image_path, result, file_name=None):
     if file_name == None:
         file_name = image_path.split('/')[-1]
@@ -12,7 +13,7 @@ def add(image_path, result, file_name=None):
     draw_y = 30
     font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
     text = 'OK' if result else 'NG'
-    fill = ('#0000ff') if result else ('#ff0000')
+    fill = '#0000ff' if result else '#ff0000'
     image = Image.open(image_path).resize((224, 224))
     draw = ImageDraw.Draw(image)
     draw.text((draw_x, draw_y), text, font=font, fill=fill)
