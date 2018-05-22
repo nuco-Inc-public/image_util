@@ -4,6 +4,7 @@ from PIL import ImageDraw
 from PIL import ImageFont
 
 # TODO 全く同じコードが存在する
+# ファイル名変えて下さい
 def add(image_path, result, file_name=None):
     if file_name == None:
         file_name = image_path.split('/')[-1]
