@@ -1,8 +1,7 @@
 # coding:utf-8
-# TODO　ファイル名変えて下さい
 import os
 import numpy as np
-from util.image_util.module import add_result_on_image as add_image
+from util.image_util.module import text_writer
 from util.image_util.module import grad_cam
 from util.image_util.module import thumbnail 
 from keras.preprocessing import image
@@ -49,13 +48,13 @@ def remove_directory(directory_path):
        なし
     '''
     if not os.path.exists(directory_path):
-        # directory_pathも表示したほうが親切なログになります
         print('directory does not exist')
+        print('input path is ', directory_path)
         return
     os.system('remove ./util/image_util/output/' + directory_path)
 
 
-def add_result_on_image(image_path, result, file_name=None):
+def add_result_on_image(image_path, text, fill, file_name=None):
     '''
     画像に評価結果を記述する
     Args:
@@ -66,12 +65,12 @@ def add_result_on_image(image_path, result, file_name=None):
        なし
     '''
     if not os.path.exists(image_path):
-        # pathを表示した方が親切なログになります
         print('image not found.')
+        print ('input path is ', image_path)
         # exit()していいの！？
         exit()
 
-    add_image.add(image_path, result, file_name)
+    text_writer.write(image_path, text, fill, file_name)
     
 
 def create_grad_cam(model, image_path, layer_name, file_name=None):
@@ -88,6 +87,7 @@ def create_grad_cam(model, image_path, layer_name, file_name=None):
     if not os.path.exists(image_path):
         # pathを表示した方が親切なログになります
         print('image not found.')
+        print('input path is ', image_path)
         # exit()していいの！？
         exit()
     if file_name == None:
