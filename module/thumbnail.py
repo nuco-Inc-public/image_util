@@ -49,32 +49,55 @@ def get_concat_v(im_list1D):
         dst.paste(im, (0, pos_y))
         pos_y += im.height
     return dst
-    
 
-def create_thumbnail(type_, file_name):
+
+def create_thumbnail(images):
     '''
     output/tmp/type_/内の画像を1枚のサムネイルに並べる
     TODO: 20枚未満の場合への対応
     Args:
-       type_ (string): サムネイルにする画像の種別
-       file_name (string): ファイル名
+       images ([PIL Image object]): image list
     Returns:
-       なし
+       PIL Image object
     '''
     count = 0
     row_list = []
     img_list2D = []
-    image_path_list = glob.glob("./util/image_util/output/tmp/" + type_ + "/*.jpg")
-    image_path_list.sort()
-    for image_path in image_path_list:
-        row_list.append(Image.open(image_path).resize((224, 224)))
+    for image in images:
+        row_list.append(image.resize((224, 224)))
         count += 1
         if count == 5:
             count = 0
             img_list2D.append(row_list)
             row_list = []
             continue
-    create_concat_tile(img_list2D).save("./util/image_util/output/thumbnail/" + type_ + "/" + type_+file_name + ".jpg")
-    print('Craeted thumnail type: %s, file_name: %s' %(type_, type_+file_name))
+    return create_concat_tile(img_list2D)
+
+
+# def create_thumbnail(type_, file_name):
+#     '''
+#     output/tmp/type_/内の画像を1枚のサムネイルに並べる
+#     TODO: 20枚未満の場合への対応
+#     Args:
+#        type_ (string): サムネイルにする画像の種別
+#        file_name (string): ファイル名
+#     Returns:
+#        なし
+#     '''
+#     count = 0
+#     row_list = []
+#     img_list2D = []
+#     image_path_list = glob.glob("./util/image_util/output/tmp/" + type_ + "/*.jpg")
+#     image_path_list.sort()
+#     for image_path in image_path_list:
+#         row_list.append(Image.open(image_path).resize((224, 224)))
+#         count += 1
+#         if count == 5:
+#             count = 0
+#             img_list2D.append(row_list)
+#             row_list = []
+#             continue
+#     create_concat_tile(img_list2D).save("./util/image_util/output/thumbnail/" + type_ + "/" + type_+file_name + ".jpg")
+#     print('Craeted thumnail type: %s, file_name: %s' %(type_, type_+file_name))
 
     
