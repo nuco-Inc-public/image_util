@@ -1,12 +1,6 @@
-# Release 1.1
+# image_util r1.1
+## Major Features And Improvements
+* 画像に表示する文字とフォントカラーを引数で渡す
 
-### Major Features and Improvements
-- Converted all category name into English
-
-### Bug Fixes and Other Changes
-- improved image-util methods' versatility
-
-
-# Release 1.0
-initial release
-
+# image_util r1.0
+Initial release
