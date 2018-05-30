@@ -89,3 +89,8 @@ def img2bytes(img):
     f = io.BytesIO()
     img.save(f, format='JPEG')
     return f.getvalue()
+
+
+def bytes2img(bs):
+    img_bin = io.BytesIO(bs)
+    return Image.open(img_bin)
