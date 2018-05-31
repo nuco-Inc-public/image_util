@@ -2,6 +2,7 @@
 import os
 import io
 import numpy as np
+from PIL import Image
 from util.image_util.module import text_writer
 from util.image_util.module import grad_cam
 from util.image_util.module import thumbnail 
