@@ -60,21 +60,10 @@ def create_thumbnail(images):
         Returns:
         PIL Image object
     '''
-    count = 0
-    row_list = []
-    img_list2D = []
-    for image in images:
-        row_list.append(image.resize((224, 224)))
-        count += 1
-        if count == 5:
-            count = 0
-            img_list2D.append(row_list)
-            row_list = []
-            continue
-    
-    if count % 5 != 0:
-        row_list = append_spare_images(row_list)
-    return create_concat_tile(img_list2D)
+    resized = list(map(lambda i: i.resize((224, 224)), images))
+    2d_list = [resized[i:i+5] for i in range(0, len(resized), 5)]
+    2d_list[-1] = append_spare_images(2d_list[-1])
+    return create_concat_tile(2d_list)
 
 def append_spare_images(row_list):
     '''
