@@ -22,14 +22,14 @@ def init():
 
 
 def create_thumbnail(images):
-'''
+    '''
     tmpディレクトリ内にある画像からサムネイルを生成する
     Args:
         20枚の画像データ
     Returns:
         生成されたサムネイルデータ
 
-'''
+    '''
     return thumbnail.create_thumbnail(images)
 
 
