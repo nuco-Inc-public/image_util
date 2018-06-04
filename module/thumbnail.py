@@ -71,4 +71,20 @@ def create_thumbnail(images):
             img_list2D.append(row_list)
             row_list = []
             continue
-    return create_concat_tile(img_list2D)   
+    
+    if count % 5 != 0:
+        row_list = append_spare_images(row_list)
+    return create_concat_tile(img_list2D)
+
+def append_spare_images(row_list):
+    '''
+        5枚未満の行の画像リストにダミー画像を追加する
+        Args:
+            長さ5未満のリスト
+        Returns:
+            ダミー画像含めて長さ5のリスト
+    '''
+    for i in range(5 - len(row_list)):
+        row_list.append(Image.new('RGB', (224, 224), (0, 0, 0)))
+    return row_list
+    

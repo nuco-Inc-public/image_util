@@ -5,7 +5,7 @@ from PIL import ImageFont
 
 
 def write(image, text, fill):
-'''
+    '''
     画像に引数で指定されたテキストを記述する
     Args:
         image: 画像データ
@@ -13,7 +13,7 @@ def write(image, text, fill):
         fill: テキストの色情報
     Returns:
         画像をタイル状に並べたサムネイルデータ
-'''
+    '''
     font_size = 20
     draw_x = 20
     draw_y = 30
