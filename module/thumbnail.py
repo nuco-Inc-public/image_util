@@ -61,9 +61,9 @@ def create_thumbnail(images):
         PIL Image object
     '''
     resized = list(map(lambda i: i.resize((224, 224)), images))
-    2d_list = [resized[i:i+5] for i in range(0, len(resized), 5)]
-    2d_list[-1] = append_spare_images(2d_list[-1])
-    return create_concat_tile(2d_list)
+    list_2d = [resized[i:i+5] for i in range(0, len(resized), 5)]
+    list_2d[-1] = append_spare_images(list_2d[-1])
+    return create_concat_tile(list_2d)
 
 def append_spare_images(row_list):
     '''
