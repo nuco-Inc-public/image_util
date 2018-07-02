@@ -1,4 +1,4 @@
-# encoding
+# coding: utf-8
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
